@@ -137,30 +137,17 @@ class BuildStreamingState:
         self.message_chunks.clear()
         return result
 
-    def finalize_thought_chunks(
-        self, routing_meta: dict[str, Any] | None = None
-    ) -> dict[str, Any] | None:
-        """Build a synthetic packet with accumulated thought text.
+    def finalize_thought_chunks(self) -> dict[str, Any] | None:
+        """Discard accumulated thought text.
 
-        ``routing_meta`` (when set) is merged into the packet's ACP ``_meta``
-        field.
+        Thought chunks are streamed to the client as live progress only. They
+        should not persist into restored transcripts.
 
         Returns:
-            A synthetic agent_thought packet or None if no chunks accumulated
+            None after clearing any accumulated thought chunks.
         """
-        if not self.thought_chunks:
-            return None
-
-        full_text = "".join(self.thought_chunks)
-        result: dict[str, Any] = {
-            "type": "agent_thought",
-            "content": {"type": "text", "text": full_text},
-            "sessionUpdate": "agent_thought",
-        }
-        if routing_meta:
-            result["_meta"] = dict(routing_meta)
         self.thought_chunks.clear()
-        return result
+        return None
 
     def should_finalize_chunks(self, new_packet_type: str) -> bool:
         """Check if we should finalize pending chunks before processing new packet.
@@ -316,7 +303,7 @@ def _save_pending_chunks(
     state: BuildStreamingState,
     routing_meta: dict[str, Any] | None = None,
 ) -> None:
-    """Flush any pending accumulated message/thought chunks to the DB.
+    """Flush pending message chunks to the DB and discard thought chunks.
 
     Called when the next sandbox event is of a different type than the chunks
     currently being accumulated, and once more at end of stream.
@@ -334,15 +321,7 @@ def _save_pending_chunks(
             db_session=db_session,
         )
 
-    thought_packet = state.finalize_thought_chunks(routing_meta)
-    if thought_packet:
-        create_message(
-            session_id=session_id,
-            message_type=MessageType.ASSISTANT,
-            turn_index=state.turn_index,
-            message_metadata=thought_packet,
-            db_session=db_session,
-        )
+    state.finalize_thought_chunks()
 
     state.clear_last_chunk_type()
 
@@ -506,8 +485,10 @@ def persist_sandbox_event(
 
     Behavior matches the pre-refactor interactive path exactly:
     - SSEKeepalive: no-op (handled by callers).
-    - agent_message_chunk / agent_thought_chunk: accumulated; flushed
-      when a non-chunk event arrives or at end of stream.
+    - agent_message_chunk: accumulated; flushed when a non-chunk event arrives
+      or at end of stream.
+    - agent_thought_chunk: stream-only; discarded when a non-chunk event arrives
+      or at end of stream.
     - tool_call_start: no-op (only completed tool calls persist).
     - tool_call_progress: TodoWrite saves every progress update; other
       tools save only on `status == "completed"`. Completed Task
@@ -639,7 +620,7 @@ def stream_cli_agent_turn(
     Storage behavior:
     - User message: Saved immediately at start
     - agent_message_chunk: Accumulated, saved as one synthetic packet at end/type change
-    - agent_thought_chunk: Accumulated, saved as one synthetic packet at end/type change
+    - agent_thought_chunk: Streamed live only; discarded at end/type change
     - tool_call_start: Streamed to frontend only, not saved
     - tool_call_progress: Only saved when status="completed"
     - agent_plan_update: Upserted (only latest plan kept per turn)

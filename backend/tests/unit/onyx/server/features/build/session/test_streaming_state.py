@@ -27,8 +27,8 @@ class TestBuildStreamingState:
         # After finalize, chunks should be cleared
         assert len(state.message_chunks) == 0
 
-    def test_thought_chunks_accumulate_separately(self) -> None:
-        """Message and thought chunks tracked independently."""
+    def test_thought_chunks_are_discarded_on_finalize(self) -> None:
+        """Thought chunks are tracked for stream boundaries but do not persist."""
         state = BuildStreamingState(turn_index=0)
 
         state.add_thought_chunk("Thinking about ")
@@ -36,9 +36,8 @@ class TestBuildStreamingState:
 
         packet = state.finalize_thought_chunks()
 
-        assert packet is not None
-        assert packet["type"] == "agent_thought"
-        assert packet["content"]["text"] == "Thinking about the problem..."
+        assert packet is None
+        assert state.thought_chunks == []
 
     def test_type_change_finalizes_previous_type(self) -> None:
         """Driving the state machine through a real chunk → opposing-type packet should

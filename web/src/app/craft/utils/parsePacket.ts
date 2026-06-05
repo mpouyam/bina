@@ -33,8 +33,10 @@ export function parsePacket(raw: unknown): ParsedPacket {
       return { type: "text_chunk", text: extractText(p.content) };
 
     case "agent_thought_chunk": // Live SSE
-    case "agent_thought": // DB-stored format
       return { type: "thinking_chunk", text: extractText(p.content) };
+
+    case "agent_thought": // Legacy DB-stored format; thinking is live-only.
+      return { type: "unknown" };
 
     case "tool_call_start":
       return parseToolCallStart(p);
