@@ -146,9 +146,22 @@ export function useBuildStreaming() {
               .getState()
               .updateStreamItem(sessionId, lastItem.id, { isStreaming: false });
           } else if (lastItem.type === "thinking" && lastItem.isStreaming) {
-            useBuildSessionStore
-              .getState()
-              .updateStreamItem(sessionId, lastItem.id, { isStreaming: false });
+            const settleThinking = () => {
+              const currentItem = useBuildSessionStore
+                .getState()
+                .sessions.get(sessionId)
+                ?.streamItems.find((item) => item.id === lastItem.id);
+
+              if (currentItem?.type === "thinking" && currentItem.isStreaming) {
+                useBuildSessionStore
+                  .getState()
+                  .updateStreamItem(sessionId, lastItem.id, {
+                    isStreaming: false,
+                  });
+              }
+            };
+
+            setTimeout(settleThinking, 250);
           }
         }
       };
