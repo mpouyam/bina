@@ -1,11 +1,11 @@
 FROM node:24-alpine@sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f AS base
 
-LABEL com.onyx.maintainer="founders@onyx.app"
-LABEL com.onyx.description="This image is the web/frontend container of Onyx which \
-contains code for both the Community and Enterprise editions of Onyx. If you do not \
-have a contract or agreement with DanswerAI, you are not permitted to use the Enterprise \
+LABEL com.bina.maintainer="founders@bina-bi.ir"
+LABEL com.bina.description="This image is the web/frontend container of Bina which \
+contains code for both the Community and Enterprise editions of Bina. If you do not \
+have a contract or agreement with Bina, you are not permitted to use the Enterprise \
 Edition features outside of personal development or testing purposes. Please reach out to \
-founders@onyx.app for more information. Please visit https://github.com/onyx-dot-app/onyx"
+founders@bina-bi.ir for more information"
 
 # Step 1. Install dependencies + rebuild the source code only when needed
 FROM base AS builder

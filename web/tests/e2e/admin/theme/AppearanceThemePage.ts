@@ -173,7 +173,7 @@ export class AppearanceThemePage {
    * element's full text content.
    */
   private get poweredByOnyxTagline(): Locator {
-    return this.page.getByText("Powered by Onyx", { exact: true });
+    return this.page.getByText("Powered by Bina", { exact: true });
   }
 
   async expectPoweredByOnyxVisible() {

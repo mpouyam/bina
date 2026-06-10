@@ -243,7 +243,7 @@ export const AppearanceThemeSettings = forwardRef<
               />
             </FormField.Control>
             <FormField.Description>
-              This name will show across the app and replace "Onyx" in the UI.
+              This name will show across the app and replace "Bina" in the UI.
             </FormField.Description>
             <FormField.Message
               messages={{ error: errors.application_name as string }}
@@ -468,7 +468,7 @@ export const AppearanceThemeSettings = forwardRef<
                 ref={customHelpLinkUrlInputRef}
                 data-label="custom-help-link-url-input"
                 showClearButton
-                placeholder="https://docs.onyx.app"
+                placeholder="https://docs.bina-bi.ir"
                 variant={
                   !enterpriseTier
                     ? "disabled"
@@ -483,7 +483,7 @@ export const AppearanceThemeSettings = forwardRef<
               />
             </FormField.Control>
             <FormField.Description>
-              Add a custom help link in the user menu in addition to the Onyx
+              Add a custom help link in the user menu in addition to the Bina
               documentation.
             </FormField.Description>
             <FormField.Message
@@ -513,12 +513,12 @@ export const AppearanceThemeSettings = forwardRef<
 
       <Disabled
         disabled={!enterpriseTier}
-        tooltip="Hiding Onyx branding is an Enterprise Plan feature."
+        tooltip="Hiding Bina branding is an Enterprise Plan feature."
       >
         <FormField state="idle" className="gap-0">
           <div className="flex justify-between items-center">
             <FormField.Label>
-              Hide Onyx Branding
+              Hide Bina Branding
               {!enterpriseTier && (
                 <Tag {...planTagProps("enterprise")} size="sm" />
               )}
@@ -536,7 +536,7 @@ export const AppearanceThemeSettings = forwardRef<
             </FormField.Control>
           </div>
           <FormField.Description>
-            Remove &ldquo;powered by Onyx&rdquo; and other Onyx branding
+            Remove &ldquo;powered by Bina&rdquo; and other Bina branding
             presence in the app.
           </FormField.Description>
         </FormField>

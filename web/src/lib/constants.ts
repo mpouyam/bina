@@ -13,7 +13,7 @@ export const HOST_URL = process.env.WEB_DOMAIN || "http://localhost:3000";
 export const INTERNAL_URL = process.env.INTERNAL_URL || "http://localhost:8080";
 
 // Documentation URLs
-export const DOCS_BASE_URL = "https://docs.onyx.app";
+export const DOCS_BASE_URL = "https://docs.bina-bi.ir";
 export const DOCS_ADMINS_PATH = `${DOCS_BASE_URL}/admins`;
 
 export const MCP_INTERNAL_URL =
@@ -49,7 +49,7 @@ export const NEXT_PUBLIC_CUSTOM_REFRESH_URL =
 // backend, so we treat undefined as enabled here to match.
 export const SERVER_SIDE_ONLY__PAID_ENTERPRISE_FEATURES_ENABLED =
   process.env.ENABLE_PAID_ENTERPRISE_EDITION_FEATURES?.toLowerCase() ===
-    "true" ||
+  "true" ||
   process.env.LICENSE_ENFORCEMENT_ENABLED?.toLowerCase() !== "false";
 // NOTE: since this is a `NEXT_PUBLIC_` variable, it will be set at
 // build-time
@@ -136,6 +136,6 @@ export const DEFAULT_LOGO_SIZE_PX = 24;
 export const DEFAULT_CONTEXT_TOKENS = 120_000;
 export const MAX_CHUNKS_FED_TO_CHAT = 25;
 
-export const APP_SLOGAN = "Open Source AI Platform";
+export const APP_SLOGAN = "AI Platform";
 
 export const DEFAULT_PAGE_SIZE = 10;

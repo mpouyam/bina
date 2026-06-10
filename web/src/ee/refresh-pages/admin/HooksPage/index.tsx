@@ -93,7 +93,7 @@ function DisconnectConfirmModal({
           <div className="flex flex-col gap-2">
             <Text font="main-ui-body" color="text-03">
               {markdown(
-                `Onyx will stop calling this endpoint for hook ***${hook.name}***. In-flight requests will continue to run. The external endpoint may still retain data previously sent to it. You can reconnect this hook later if needed.`
+                `Bina will stop calling this endpoint for hook ***${hook.name}***. In-flight requests will continue to run. The external endpoint may still retain data previously sent to it. You can reconnect this hook later if needed.`
               )}
             </Text>
             <Text font="main-ui-body" color="text-03">
@@ -193,7 +193,7 @@ function UnconnectedHookCard({ spec, onConnect }: UnconnectedHookCardProps) {
 
           {spec.docs_url && (
             <div className="ml-6">
-              <LinkButton href={spec.docs_url} target="_blank">
+              <LinkButton href="bina-bi.ir" target="_blank">
                 Documentation
               </LinkButton>
             </div>
@@ -366,7 +366,7 @@ function ConnectedHookCard({
 
               {spec?.docs_url && (
                 <div className="ml-6">
-                  <LinkButton href={spec.docs_url} target="_blank">
+                  <LinkButton href="bina-bi.ir" target="_blank">
                     Documentation
                   </LinkButton>
                 </div>
@@ -579,7 +579,7 @@ export default function HooksPage() {
         <SettingsLayouts.Header
           icon={route.icon}
           title={route.title}
-          description="Extend Onyx pipelines by registering external API endpoints as callbacks at predefined hook points."
+          description="Extend Bina pipelines by registering external API endpoints as callbacks at predefined hook points."
           divider
         />
         <SettingsLayouts.Body>

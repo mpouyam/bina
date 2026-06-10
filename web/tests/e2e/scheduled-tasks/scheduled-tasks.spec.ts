@@ -13,7 +13,7 @@ test.describe("Scheduled Tasks", () => {
     await scheduledTasks.gotoList();
     test.skip(
       !scheduledTasks.isCraftEnabled(),
-      "Onyx Craft is disabled in this environment (settings.onyx_craft_enabled !== true)"
+      "Bina Craft is disabled in this environment (settings.onyx_craft_enabled !== true)"
     );
 
     await scheduledTasks.openCreateForm();

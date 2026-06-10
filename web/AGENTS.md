@@ -322,7 +322,7 @@ function UserCard({ name }: { name: string }) {
 import { markdown } from "@opal/utils";
 
 <Text font="main-ui-body" color="text-05">
-  {markdown("*Hello*, **world**! Visit [Onyx](https://onyx.app) and run `onyx start`.")}
+  {markdown("*Hello*, **world**! Visit [Bina](https://bina-bi.ir) and run `onyx start`.")}
 </Text>
 
 // ✅ Good — plain strings are never parsed as markdown

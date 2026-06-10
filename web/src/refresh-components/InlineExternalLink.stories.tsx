@@ -15,14 +15,14 @@ type Story = StoryObj<typeof InlineExternalLink>;
 
 export const Default: Story = {
   args: {
-    href: "https://docs.onyx.app",
-    children: "Onyx Documentation",
+    href: "https://docs.bina-bi.ir",
+    children: "Bina Documentation",
   },
 };
 
 export const CustomClassName: Story = {
   args: {
-    href: "https://github.com/onyx-dot-app/onyx",
+    href: "https://docs.bina-bi.ir",
     children: "GitHub Repository",
     className: "text-action-link-05 underline hover:opacity-80",
   },
@@ -32,11 +32,11 @@ export const InContext: Story = {
   render: () => (
     <p className="font-main-content-body text-text-04">
       For more information, visit the{" "}
-      <InlineExternalLink href="https://docs.onyx.app">
+      <InlineExternalLink href="https://docs.bina-bi.ir">
         official documentation
       </InlineExternalLink>{" "}
       or check out the{" "}
-      <InlineExternalLink href="https://github.com/onyx-dot-app/onyx">
+      <InlineExternalLink href="https://docs.bina-bi.ir">
         source code
       </InlineExternalLink>
       .

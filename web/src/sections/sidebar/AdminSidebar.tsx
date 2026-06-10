@@ -301,8 +301,8 @@ function AdminSidebarInner() {
                 icon={icon}
                 tooltip={markdown(
                   requiredTier === Tier.ENTERPRISE
-                    ? "This feature is available on the [Enterprise version of Onyx](/admin/billing) only."
-                    : "This feature is available on the [Business or Enterprise version of Onyx](/admin/billing) only."
+                    ? "This feature is available on the [Enterprise version of Bina](/admin/billing) only."
+                    : "This feature is available on the [Business or Enterprise version of Bina](/admin/billing) only."
                 )}
               >
                 {name}

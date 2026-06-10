@@ -50,7 +50,7 @@ async function waitForServer(baseURL: string): Promise<void> {
   }
 
   throw new Error(
-    `Onyx is not running at ${baseURL}. ` +
+    `Bina is not running at ${baseURL}. ` +
       `Timed out after ${
         PREFLIGHT_TIMEOUT_MS / 1000
       }s waiting for ${healthURL} to return 200. ` +

@@ -4,7 +4,7 @@ Storybook is an isolated development environment for UI components. It renders e
 
 The Onyx Storybook covers the full component library — from low-level `@opal/core` primitives up through `refresh-components` — giving designers and engineers a shared reference for every visual state.
 
-**Production:** [onyx-storybook.vercel.app](https://onyx-storybook.vercel.app)
+**Production:** [bina-storybook.vercel.app](https://bina-storybook.vercel.app)
 
 ## Running Locally
 

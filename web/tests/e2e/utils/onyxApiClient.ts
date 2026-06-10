@@ -183,7 +183,7 @@ export class OnyxApiClient {
     if (!response.ok()) {
       const errorText = await response.text();
       console.error(
-        `[OnyxApiClient] ${errorMessage}: ${response.status()} - ${errorText}`
+        `[BinaApiClient] ${errorMessage}: ${response.status()} - ${errorText}`
       );
       return false;
     }
@@ -225,10 +225,10 @@ export class OnyxApiClient {
   /**
    * Log an action with consistent formatting.
    *
-   * @param message - The message to log (will be prefixed with "[OnyxApiClient]")
+   * @param message - The message to log (will be prefixed with "[BinaApiClient]")
    */
   private log(message: string): void {
-    console.log(`[OnyxApiClient] ${message}`);
+    console.log(`[BinaApiClient] ${message}`);
   }
 
   /**

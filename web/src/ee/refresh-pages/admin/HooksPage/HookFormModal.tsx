@@ -52,7 +52,7 @@ interface HookFormModalProps {
 const MAX_TIMEOUT_SECONDS = 600;
 
 const SOFT_DESCRIPTION =
-  "If the endpoint returns an error, Onyx logs it and continues the pipeline as normal, ignoring the hook result.";
+  "If the endpoint returns an error, Bina logs it and continues the pipeline as normal, ignoring the hook result.";
 
 function buildInitialValues(
   hook: HookResponse | undefined,
@@ -113,7 +113,7 @@ function TimeoutField({ spec }: TimeoutFieldProps) {
       withLabel="timeout_seconds"
       title="Timeout"
       suffix="(seconds)"
-      subDescription={`Maximum time Onyx will wait for the endpoint to respond before applying the fail strategy. Must be greater than 0 and at most ${MAX_TIMEOUT_SECONDS} seconds.`}
+      subDescription={`Maximum time Bina will wait for the endpoint to respond before applying the fail strategy. Must be greater than 0 and at most ${MAX_TIMEOUT_SECONDS} seconds.`}
     >
       <div className="[&_input]:!font-main-ui-mono [&_input::placeholder]:!font-main-ui-mono [&_input]:[appearance:textfield]! [&_input::-webkit-outer-spin-button]:appearance-none! [&_input::-webkit-inner-spin-button]:appearance-none! w-full">
         <InputTypeInField
@@ -124,7 +124,7 @@ function TimeoutField({ spec }: TimeoutFieldProps) {
           showClearButton={false}
           rightSection={
             spec?.default_timeout_seconds !== undefined &&
-            values.timeout_seconds !== String(spec.default_timeout_seconds) ? (
+              values.timeout_seconds !== String(spec.default_timeout_seconds) ? (
               <Button
                 prominence="tertiary"
                 size="xs"
@@ -286,7 +286,7 @@ export default function HookFormModal({
                           width="fit"
                         />
                         {docsUrl && (
-                          <LinkButton href={docsUrl} target="_blank">
+                          <LinkButton href="bina-bi.ir" target="_blank">
                             Documentation
                           </LinkButton>
                         )}
@@ -359,7 +359,7 @@ export default function HookFormModal({
                   <InputVertical
                     withLabel="api_key"
                     title="API Key"
-                    subDescription="Onyx will use this key to authenticate with your API endpoint."
+                    subDescription="Bina will use this key to authenticate with your API endpoint."
                   >
                     <PasswordInputTypeInField
                       name="api_key"
@@ -431,8 +431,8 @@ export default function HookFormModal({
                         icon={
                           isSubmitting && !isEdit
                             ? () => (
-                                <SvgLoader size={16} className="animate-spin" />
-                              )
+                              <SvgLoader size={16} className="animate-spin" />
+                            )
                             : undefined
                         }
                       >

@@ -17,9 +17,9 @@ describe("toPlainString", () => {
   it("strips link syntax, keeping the label", () => {
     expect(
       toPlainString(
-        markdown("[Onyx 0.0.0-dev](https://docs.onyx.app/changelog)")
+        markdown("[Bina 0.0.0-dev](https://docs.bina-bi.app/changelog)")
       )
-    ).toBe("Onyx 0.0.0-dev");
+    ).toBe("Bina 0.0.0-dev");
   });
 
   it("strips bold (**) syntax", () => {

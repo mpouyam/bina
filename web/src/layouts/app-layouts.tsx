@@ -465,9 +465,9 @@ function Footer() {
 
   const customFooterContent =
     settings?.enterpriseSettings?.custom_lower_disclaimer_content ||
-    `[Onyx ${
+    `[Bina ${
       settings?.webVersion || "dev"
-    }](https://www.onyx.app/) - ${APP_SLOGAN}`;
+    }](https://www.bina-bi.ir/) - ${APP_SLOGAN}`;
 
   return (
     <footer

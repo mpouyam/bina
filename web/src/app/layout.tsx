@@ -51,7 +51,7 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Onyx",
+  title: "Bina",
   description: "Question answering for your documents",
 };
 
