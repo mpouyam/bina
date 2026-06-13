@@ -228,7 +228,15 @@ export default function NotificationsPopover({
         </Section>
       </Section>
 
-      {isLoading ? (
+      <div className="h-(--notifications-popover)">
+        <Section>
+          <IllustrationContent
+            title="No notifications"
+            illustration={SvgEmpty}
+          />
+        </Section>
+      </div>
+      {/* {isLoading ? (
         <div className="h-(--notifications-popover)">
           <Section>
             <SimpleLoader />
@@ -279,7 +287,7 @@ export default function NotificationsPopover({
             </>
           )}
         </div>
-      )}
+      )} */}
     </Section>
   );
 }

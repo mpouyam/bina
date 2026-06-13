@@ -31,9 +31,9 @@ export default function BuildModeIntroContent({
           className="w-full relative"
         >
           <div className="grid grid-cols-[1fr_auto_1fr] items-end">
-            <div className="flex justify-end">
+            {/* <div className="flex justify-end">
               <OnyxLogoTypeIcon size={385} className="text-white" />
-            </div>
+            </div> */}
             <div className="w-8"></div>
             <div className="flex justify-start">
               <div

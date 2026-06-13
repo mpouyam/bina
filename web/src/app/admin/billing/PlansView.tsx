@@ -26,7 +26,7 @@ import { Button as OpalButton } from "@opal/components";
 import Text from "@/refresh-components/texts/Text";
 import { Section } from "@/layouts/general-layouts";
 
-const SALES_URL = "https://www.bina-bi.ir/contact-sales";
+const SALES_URL = "https://bina-bi.ir/contact";
 
 // ----------------------------------------------------------------------------
 // Types
@@ -243,29 +243,29 @@ export default function PlansView({
   hideFeatures,
 }: PlansViewProps) {
   const plans: PlanConfig[] = [
-    {
-      icon: SvgUsers,
-      title: "Business",
-      pricing: "$20",
-      description:
-        "per seat/month billed annually\nor $25 per seat if billed monthly",
-      buttonLabel: "Get Business Plan",
-      buttonVariant: "primary",
-      onClick: hasLicense ? undefined : onCheckout,
-      features: BUSINESS_FEATURES,
-      featuresPrefix: "Get more work done with AI for your team.",
-      isCurrentPlan: !!hasSubscription,
-    },
+    // {
+    //   icon: SvgUsers,
+    //   title: "Business",
+    //   pricing: "$20",
+    //   description:
+    //     "per seat/month billed annually\nor $25 per seat if billed monthly",
+    //   buttonLabel: "Get Business Plan",
+    //   buttonVariant: "primary",
+    //   onClick: hasLicense ? undefined : onCheckout,
+    //   features: BUSINESS_FEATURES,
+    //   featuresPrefix: "Get more work done with AI for your team.",
+    //   isCurrentPlan: !!hasSubscription,
+    // },
     {
       icon: SvgOrganization,
       title: "Enterprise",
       description:
         "Flexible pricing & deployment options\nfor large organizations",
       buttonLabel: "Contact Sales",
-      buttonVariant: "secondary",
+      buttonVariant: "primary",
       href: SALES_URL,
       features: ENTERPRISE_FEATURES,
-      featuresPrefix: "Everything in Business Plan, plus:",
+      featuresPrefix: "Everything You Need in Your Company",
       isCurrentPlan: !!hasLicense && !hasSubscription,
     },
   ];

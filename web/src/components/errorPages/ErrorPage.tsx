@@ -36,7 +36,7 @@ export default function Error() {
         Need help? Join our{" "}
         <a
           className="text-action-link-05"
-          href="https://discord.gg/4NA5SbzrWb"
+          href="https://bina-bi.ir"
           target="_blank"
           rel="noopener noreferrer"
         >

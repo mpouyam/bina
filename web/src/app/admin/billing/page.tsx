@@ -70,7 +70,7 @@ function FooterLinks({
 
   return (
     <Section flexDirection="row" justifyContent="center" gap={1} height="auto">
-      {onActivateLicense && !hideLicenseLink && (
+      {/* {onActivateLicense && !hideLicenseLink && (
         <>
           <Text secondaryBody text03>
             Have a license key?
@@ -78,7 +78,7 @@ function FooterLinks({
           <LinkButton onClick={onActivateLicense}>{licenseText}</LinkButton>
         </>
       )}
-      <LinkButton href={billingHelpHref}>Billing Help</LinkButton>
+      <LinkButton href={billingHelpHref}>Billing Help</LinkButton> */}
     </Section>
   );
 }
