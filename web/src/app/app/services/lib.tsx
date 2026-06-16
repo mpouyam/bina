@@ -168,7 +168,7 @@ export async function* sendMessage({
     internal_search_filters: filters,
     deep_research: deepResearch ?? false,
     allowed_tool_ids: enabledToolIds,
-    forced_tool_id: forcedToolId ?? null,
+    forced_tool_id: forcedToolId ?? 1, // TODO: remove this once we have a proper forced tool ID only for CHARSOQ
     llm_override:
       temperature || modelVersion
         ? {
